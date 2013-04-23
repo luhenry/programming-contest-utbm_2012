@@ -1,4 +1,4 @@
-package fr.utbm.optimisation
+  package fr.utbm.optimisation
 
 import fr.utbm.utils.Map
 import fr.utbm.utils.Route

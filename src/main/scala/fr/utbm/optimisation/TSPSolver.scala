@@ -32,14 +32,13 @@ class AStarTSPSolver(start: Town, map: Map, routes: List[Route], maxRunningTime:
       this.result = new Solution(cost, path)
       this.result
     } else {
-      val towns = ((this.towns)
-        .filter(t => !path.contains(t)))
+      val towns = this.towns
+        .filter(t => !path.contains(t))
         .sortBy(t => costs.get((town, t)).get)
 
       val solutions = towns
         .map(t => moveTo(t, cost + costs.get((town, t)).get, path :+ t))
         .filter(s => s.cost >= 0)
-        .toList
 
       if (solutions.isEmpty)
         new Solution(-1, null)
